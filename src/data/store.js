@@ -8,6 +8,7 @@ export const store = reactive({
   
   apiKey:'f504cff324780bcb48537c12da7a5673',
 
+  type:'All',
   
   seriesList: [],
   movieList: [],

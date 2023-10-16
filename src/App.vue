@@ -22,6 +22,7 @@ export default {
   },
   
   methods:{
+    
     getApi(type){
       axios.get(store.apiUrl + type ,{
         params:{
@@ -40,7 +41,9 @@ export default {
       .catch(err=>{
         console.log('ERRORE API ERRORE APIIII')
       })
-    }
+    },
+
+
   },
 
   mounted(){
@@ -52,7 +55,7 @@ export default {
 
 
 <template>
-  <Header/>
+  <Header @titleSearch="console.log(store.type)"/>
   <Main/>
 </template>
 

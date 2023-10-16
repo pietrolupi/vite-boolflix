@@ -22,22 +22,28 @@ export default {
 </script>
 
 <template>
-  <div>
-    <h1>MOVIES</h1>
-  </div>
+  
+  
+  <div v-if="store.type === 'movie' || store.type === 'All'">
 
-  <div class="movie-container">
-    
-    <Card
-    v-for="movie in store.movieList"
-    :key="movie.id"
-    :title="movie.original_title"
-    :rating="movie.vote_average"
-    :overview="movie.overview"
-    :poster= "movie.poster_path"
-    :name="movie.name"/>
+    <div>
+      <h1>MOVIES</h1>
+    </div>
+  
+    <div class="movie-container">
+      
+      <Card
+      v-for="movie in store.movieList"
+      :key="movie.id"
+      :title="movie.original_title"
+      :rating="movie.vote_average"
+      :overview="movie.overview"
+      :poster= "movie.poster_path"
+      :name="movie.name"/>
+  
+      
+    </div>
 
-    
   </div>
   
 </template>

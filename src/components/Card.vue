@@ -20,6 +20,8 @@ export default {
       <div class="flip-card-front">
         <img :src="`https://image.tmdb.org/t/p/w500/${ poster }`" alt="Avatar" style="width:300px;height:300px;">
       </div>
+
+      
       <div class="flip-card-back">
         <h1 v-if="name === null">TITLE: {{title}}</h1>
         <h1 v-else>TITLE: {{ name }}</h1>
