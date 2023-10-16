@@ -34,7 +34,8 @@ export default {
     :title="movie.original_title"
     :rating="movie.vote_average"
     :overview="movie.overview"
-    :poster= "movie.poster_path"/>
+    :poster= "movie.poster_path"
+    :name="movie.name"/>
 
     
   </div>

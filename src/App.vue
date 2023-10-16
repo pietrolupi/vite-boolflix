@@ -22,15 +22,19 @@ export default {
   },
   
   methods:{
-    getMovieApi(){
-      axios.get(store.apiMovieUrl,{
+    getApi(type){
+      axios.get(store.apiUrl + type ,{
         params:{
           query: store.searchTitle,
           api_key : store.apiKey
         }
       })
       .then(res=>{
-        store.movieList = res.data.results
+        if(type === 'movie'){
+          store.movieList = res.data.results
+        }else{
+          store.seriesList = res.data.results
+        }
         console.log(store.movieList[0].original_title);
       })
       .catch(err=>{
@@ -40,8 +44,8 @@ export default {
   },
 
   mounted(){
-    this.getMovieApi()
-    
+    this.getApi('movie')
+    this.getApi('tv')
   }
 }
 </script>

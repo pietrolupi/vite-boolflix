@@ -1,17 +1,11 @@
 
 <script>
 
-/* import Searchbar from './Searchbar.vue'; */
-import Select from './Select.vue';
 import { store } from '../data/store';
 
 export default {
 
   name: 'Header',
-  components:{
-    Select,
-    
-  },
 
   data(){
     return{
@@ -33,9 +27,17 @@ export default {
       @keyup.enter="$emit('titleSearch')"
       >
 
+
+      <select class="form-select" aria-label="Default select example">
+        <option selected>Open this select menu</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        
+      </select>
+
     </div>
 
-    <Select/>
+    
   </header>
  
 </template>
