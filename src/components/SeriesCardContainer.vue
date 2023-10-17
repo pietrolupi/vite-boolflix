@@ -36,7 +36,8 @@ export default {
       :rating="series.vote_average"
       :overview="series.overview"
       :poster= "series.poster_path"
-      :name="series.name"/>
+      :name="series.name"
+      :lang="series.original_language"/>
   
     </div>
 
@@ -50,7 +51,7 @@ export default {
   .series-container{
     margin-top: 30px;
     display: flex;
-    justify-content: space-between;
+    
     flex-wrap: wrap;
   }
 

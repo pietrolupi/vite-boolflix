@@ -39,7 +39,8 @@ export default {
       :rating="movie.vote_average"
       :overview="movie.overview"
       :poster= "movie.poster_path"
-      :name="movie.name"/>
+      :name="movie.name"
+      :lang="movie.original_language"/>
   
       
     </div>
@@ -52,7 +53,7 @@ export default {
 <style lang="scss" scoped>
   .movie-container{
     display: flex;
-    justify-content: space-between;
+    
     flex-wrap: wrap;
   }
 </style>

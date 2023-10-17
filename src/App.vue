@@ -4,6 +4,7 @@
 
 import Header from './components/Header.vue';
 import Main from './components/Main.vue';
+
 import axios from 'axios';
 import {store} from './data/store'
 
@@ -13,6 +14,7 @@ export default {
   components: {
     Header,
     Main,
+  
   },
 
   data(){
@@ -43,7 +45,16 @@ export default {
       })
     },
 
+    startSearching(){
+      store.movieList = []
+      store.seriesList = []
+      
+      this.getApi('movie')
+      this.getApi('tv')
 
+      store.searchTitle = ''
+      
+    }
   },
 
   mounted(){
@@ -55,7 +66,7 @@ export default {
 
 
 <template>
-  <Header @titleSearch="console.log(store.type)"/>
+  <Header @titleSearch="startSearching()"/>
   <Main/>
 </template>
 
