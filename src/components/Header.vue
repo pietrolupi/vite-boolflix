@@ -18,17 +18,25 @@ export default {
 </script>
 
 <template>
-  <header class="">
+  <header >
     
-    <div class="w-25">
+    <div class="img-container">
+      
+      <img src="../assets/logo-boolflix.png" alt="">
 
-      <input class="form-control form-control-lg" type="text" placeholder="Search a movie or a series"
+    </div>
+    
+
+
+    <div class="d-flex justify-content-around align-items-center">
+
+      <input class="form-control form-control-lg me-3" type="text" placeholder="Search a movie or a series"
       v-model="store.searchTitle" 
       @keyup.enter="$emit('titleSearch')"
       >
 
 
-      <select v-model="store.type" class="form-select" aria-label="Default select example">
+      <select v-model="store.type" class="form-select w-25" aria-label="Default select example">
         <option value="All" selected>All</option>
         <option value="movie">Movies</option>
         <option value="tv">TV Series</option>
@@ -46,10 +54,28 @@ export default {
 <style lang="scss" scoped>
   header{
     
-    background-color: black;
+    height: 100px;
+    background: rgb(53,53,53);
+    background: linear-gradient(0deg, rgba(53,53,53,1) 0%, rgba(0,0,0,1) 67%);
+
+    margin-bottom: 50px;
     display: flex;
     justify-content: space-between;
     color: white;
     padding: 0 20px;
+
+    .img-container{
+      width: 200px;
+      display: flex;
+      align-items: center;
+      
+      img{
+        width: 100%;
+      }
+    }
+
+    input, select{
+      height: 40px;
+    }
   }
 </style>

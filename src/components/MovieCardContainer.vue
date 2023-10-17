@@ -24,7 +24,7 @@ export default {
 <template>
   
   
-  <div v-if="store.type === 'movie' || store.type === 'All'">
+  <div v-if="(store.type === 'movie' || store.type === 'All') && store.movieList.length !== 0">
 
     <div>
       <h1>MOVIES</h1>
@@ -53,7 +53,13 @@ export default {
 <style lang="scss" scoped>
   .movie-container{
     display: flex;
-    
     flex-wrap: wrap;
+    
+  }
+
+  h1{
+    margin-left: 20px;
+    color: white;
+    font-weight: 900;
   }
 </style>

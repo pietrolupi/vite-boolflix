@@ -21,7 +21,7 @@ export default {
 
 <template>
 
-  <div v-if="store.type === 'tv' || store.type=== 'All'">
+  <div v-if="(store.type === 'tv' || store.type=== 'All') && store.seriesList.length !== 0">
 
     <div>
       <h1>TV SERIES</h1>
@@ -53,6 +53,12 @@ export default {
     display: flex;
     
     flex-wrap: wrap;
+  }
+
+  h1{
+    margin-left: 20px;
+    color: white;
+    font-weight: 900;
   }
 
  

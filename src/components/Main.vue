@@ -3,6 +3,8 @@
 <script>
 import MovieCardContainer from './MovieCardContainer.vue';
 import SeriesCardContainer from './SeriesCardContainer.vue';
+import NoResults from './NoResults.vue';
+
 
 export default {
   
@@ -10,6 +12,8 @@ export default {
   components:{
     MovieCardContainer,
     SeriesCardContainer,
+    NoResults
+ 
   }
 
   
@@ -20,6 +24,8 @@ export default {
 <template>
   
   <div class="container">
+    
+   <NoResults/>
 
    <MovieCardContainer/>
 
@@ -33,5 +39,7 @@ export default {
 
 
 <style lang="scss" scoped >
-
+  .container{
+    background-color: #353535;
+  }
 </style>
