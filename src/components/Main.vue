@@ -6,6 +6,7 @@ import SeriesCardContainer from './SeriesCardContainer.vue';
 import NoResults from './NoResults.vue';
 import { store } from '../data/store';
 import Swiper from './Swiper.vue';
+import Loader from './Loader.vue';
 
 export default {
   
@@ -14,7 +15,8 @@ export default {
     MovieCardContainer,
     SeriesCardContainer,
     NoResults,
-    Swiper
+    Swiper,
+    Loader
  
   },
   data(){
@@ -32,17 +34,25 @@ export default {
   
   <div class="container">
 
-   <Swiper v-if="store.showPopular"/>
-    
-   <div v-else>
+    <Loader v-if="store.isLoading"/>
 
-     <NoResults v-if="(store.movieList.length === 0 && store.seriesList.length === 0) && !store.showPopular"/>
-  
-     <MovieCardContainer/>
-  
-     <SeriesCardContainer/>
 
-   </div>
+    <div v-else>
+
+      <Swiper v-if="store.showPopular"/>
+       
+      <div v-else>
+   
+        <NoResults v-if="(store.movieList.length === 0 && store.seriesList.length === 0) && !store.showPopular"/>
+     
+        <MovieCardContainer/>
+     
+        <SeriesCardContainer/>
+   
+      </div>
+
+    </div>
+
 
 
   </div>

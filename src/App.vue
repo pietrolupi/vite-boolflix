@@ -55,6 +55,11 @@ export default {
 
     startSearching(){
 
+      store.isLoading = true
+
+      setTimeout(() => {
+        store.isLoading = false;
+      }, 2000)
       store.showPopular = false
       store.movieList = []
       store.seriesList = []

@@ -11,6 +11,7 @@ export const store = reactive({
   type:'All',
   
   showPopular: true,
+  isLoading: false,
 
   popularList: [],
   seriesList: [],
