@@ -24,9 +24,17 @@ export default {
   },
   
   methods:{
+
+    getPopularApi(){
+      axios.get(store.apiUrlPopular)
+      .then(res=>{
+        store.popularList = res.data.results
+        console.log(store.popularList[0]);
+      })
+    },
     
     getApi(type){
-      axios.get(store.apiUrl + type ,{
+      axios.get(store.apiUrl + type,{
         params:{
           query: store.searchTitle,
           api_key : store.apiKey
@@ -46,6 +54,8 @@ export default {
     },
 
     startSearching(){
+
+      store.showPopular = false
       store.movieList = []
       store.seriesList = []
       
@@ -54,20 +64,27 @@ export default {
 
       store.searchTitle = ''
       
+    },
+
+    goHomeReset(){
+      store.movieList = []
+      store.seriesList = []
+      store.showPopular = true
     }
   },
 
   mounted(){
     this.getApi('movie')
     this.getApi('tv')
+    this.getPopularApi()
   }
 }
 </script>
 
 
 <template>
-  <Header @titleSearch="startSearching()"/>
-  <Main/>
+  <Header @goHome = "goHomeReset()" @titleSearch="startSearching()"/>
+  <Main />
 </template>
 
 

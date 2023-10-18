@@ -37,13 +37,7 @@ export default {
 
   },
 
-
-  computed:{
-    transform(x){
-
-
-    }
-  }
+ 
 }
 </script>
 
@@ -105,6 +99,8 @@ export default {
   height: 400px;
   margin: 40px 20px;
   font-weight: 600;
+  min-width: 280px;
+  cursor: pointer;
   
   perspective: 1000px; /* Remove this if you don't want the 3D effect */
 

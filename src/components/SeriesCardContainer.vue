@@ -49,7 +49,7 @@ export default {
 <style lang="scss" scoped>
 
   .series-container{
-    margin-top: 30px;
+    
     display: flex;
     
     flex-wrap: wrap;

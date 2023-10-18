@@ -20,7 +20,9 @@ export default {
 <template>
   <header >
     
-    <div class="img-container">
+    <div
+    @click="$emit('goHome')"
+    class="img-container">
       
       <img src="../assets/logo-boolflix.png" alt="">
 
@@ -36,7 +38,7 @@ export default {
       >
 
 
-      <select v-model="store.type" class="form-select w-25" aria-label="Default select example">
+      <select v-model="store.type" class="form-select " aria-label="Default select example">
         <option value="All" selected>All</option>
         <option value="movie">Movies</option>
         <option value="tv">TV Series</option>
@@ -62,12 +64,13 @@ export default {
     display: flex;
     justify-content: space-between;
     color: white;
-    padding: 0 20px;
+    padding: 0 35px;
 
     .img-container{
       width: 200px;
       display: flex;
       align-items: center;
+      cursor: pointer;
       
       img{
         width: 100%;
@@ -75,7 +78,11 @@ export default {
     }
 
     input, select{
-      height: 40px;
+      height: 48px;
+    }
+
+    select{
+      width: 34%;
     }
   }
 </style>

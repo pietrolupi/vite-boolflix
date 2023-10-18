@@ -4,7 +4,8 @@
 import MovieCardContainer from './MovieCardContainer.vue';
 import SeriesCardContainer from './SeriesCardContainer.vue';
 import NoResults from './NoResults.vue';
-
+import { store } from '../data/store';
+import Swiper from './Swiper.vue';
 
 export default {
   
@@ -12,8 +13,14 @@ export default {
   components:{
     MovieCardContainer,
     SeriesCardContainer,
-    NoResults
+    NoResults,
+    Swiper
  
+  },
+  data(){
+    return{
+      store
+    }
   }
 
   
@@ -24,12 +31,18 @@ export default {
 <template>
   
   <div class="container">
+
+   <Swiper v-if="store.showPopular"/>
     
-   <NoResults/>
+   <div v-else>
 
-   <MovieCardContainer/>
+     <NoResults v-if="(store.movieList.length === 0 && store.seriesList.length === 0) && !store.showPopular"/>
+  
+     <MovieCardContainer/>
+  
+     <SeriesCardContainer/>
 
-   <SeriesCardContainer/>
+   </div>
 
 
   </div>
@@ -41,5 +54,6 @@ export default {
 <style lang="scss" scoped >
   .container{
     background-color: #353535;
+    overflow-x: hidden;
   }
 </style>
